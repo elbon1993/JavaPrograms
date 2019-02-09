@@ -3,6 +3,7 @@ public class SingleLinkedList {
 
 	Node head = null;
 	public static int size = 0;
+
 	public void display() {
 
 		if (head != null) {
@@ -16,41 +17,40 @@ public class SingleLinkedList {
 	}
 
 	public void insert(int data, int index) {
-		
+
 		Node newNode = new Node(data);
-		if(head == null)
+		if (head == null)
 			head = newNode;
-		else if(index == 0){
+		else if (index == 0) {
 			newNode.next = head;
 			head = newNode;
 		} else {
 			Node current = head;
-			for(int i=1; i<index && current.next!=null; i++) {
+			for (int i = 1; i < index && current.next != null; i++) {
 				current = current.next;
 			}
 			newNode.next = current.next;
 			current.next = newNode;
 		}
 	}
-	
+
 	public void delete(int index) {
-		
-		if(head == null) {
+
+		if (head == null) {
 			System.out.println("Linked list is empty");
-		}
-		else if(index == 0) {
-			System.out.println("Deleted: "+head.data);
+		} else if (index == 0) {
+			System.out.println("Deleted: " + head.data);
 			head = head.next;
 		} else {
 			Node current = head;
-			for(int i=1; i<index; i++) {
+			for (int i = 1; i < index; i++) {
 				current = current.next;
 			}
-			System.out.println("Deleted: "+current.next.data);
+			System.out.println("Deleted: " + current.next.data);
 			current.next = null;
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		SingleLinkedList list = new SingleLinkedList();
 		list.insert(1, 0);
@@ -65,9 +65,10 @@ public class SingleLinkedList {
 }
 
 class Node {
-	Object data;
+	int data;
 	Node next;
-	public Node(Object data){
+
+	public Node(int data) {
 		this.data = data;
 		this.next = null;
 	}
