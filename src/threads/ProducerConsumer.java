@@ -60,7 +60,7 @@ public class ProducerConsumer
         // Create a list shared by producer and consumer 
         // Size of list is 2. 
         LinkedList<Integer> list = new LinkedList<>(); 
-        int capacity = 2; 
+        static final int CAPACITY = 2; 
   
         // Function called by producer thread 
         public void produce() throws InterruptedException 
@@ -72,7 +72,7 @@ public class ProducerConsumer
                 { 
                     // producer thread waits while list 
                     // is full 
-                    while (list.size()==capacity) 
+                    while (list.size()==CAPACITY) 
                         wait(); 
   
                     System.out.println("Producer produced-"
