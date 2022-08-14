@@ -61,6 +61,37 @@ public class SingleLinkedList {
 		list.display();
 		list.delete(0);
 		list.display();
+		
+		SingleLinkedList list2 = new SingleLinkedList();
+		list2.insert(11, 1);
+		list2.insert(22, 2);
+		list2.insert(33, 3);
+		list2.insert(44, 4);
+		list2.insert(55, 5);
+		findFromLast(list2.head, 3);
+	}
+
+	private static void findFromLast(Node head2, int pos) {
+		int len = findLength(head2);
+		int index = len - pos + 1;
+		Node current = head2;
+		if(index <= 0) {
+			System.out.println("not found");
+			return;
+		}
+		for(int i=1; i<index; i++) {
+			current = current.next;
+		}
+		System.out.println("found::"+current.data);
+	}
+
+	private static int findLength(Node head2) {
+		int len = 0;
+		while(head2 != null) {
+			head2 = head2.next;
+			len++;
+		}
+		return len;
 	}
 }
 

@@ -1,5 +1,6 @@
 package strings;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -11,9 +12,23 @@ public class FindDuplicateCharacters {
 		findWithMap("programming");
 		findWithSet("programming");
 		findWithLoops("programming");
+		findWithLoop("programming");
 		
 	}
 
+	private static void findWithLoop(String s) {
+		System.out.println("With single loop duplicate characters");
+		char[] arr = s.toCharArray();
+		Arrays.sort(arr);
+		s = String.valueOf(arr);
+		System.out.println(String.valueOf(arr));
+		for(int i=0; i<s.length()-1; i++) {
+			if(s.charAt(i) == s.charAt(i+1)) {
+				System.out.println(s.charAt(i));
+			}
+		}
+	}
+	
 	private static void findWithLoops(String s) {
 		System.out.println("With loops duplicate characters");
 		for(int i=0; i<s.length();i++){
